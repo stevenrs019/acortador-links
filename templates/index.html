@@ -84,7 +84,9 @@
         {% if link %}
             <div class="link-output">
                 Tu enlace corto: <br>
-                <a href="{{ link }}" target="_blank">{{ request.host_url }}{{ link }}</a>
+                <a href="{{ link }}" target="_blank">
+                    https://banco-lafise/{{ link[1:] }}
+                </a>
             </div>
         {% endif %}
     </div>
