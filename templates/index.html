@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acortador de Enlaces</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .link-output {
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: #f1f3f5;
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Acortador de Enlaces</h1>
+        <form method="post">
+            <input type="url" name="url" placeholder="Pega tu URL larga aquí" required>
+            <button type="submit">Acortar</button>
+        </form>
+
+        {% if link %}
+            <div class="link-output">
+                Tu enlace corto: <br>
+                <a href="{{ link }}" target="_blank">{{ request.host_url }}{{ link }}</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
